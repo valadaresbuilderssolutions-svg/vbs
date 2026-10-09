@@ -2766,3 +2766,65 @@ footer {
     padding: 72px 0;
   }
 }
+
+/* VBS PREMIUM SERVICES DROPDOWN */
+
+.services-dropdown {
+  position: relative;
+}
+
+.services-dropdown details {
+  position: relative;
+}
+
+.services-dropdown summary {
+  list-style: none;
+  cursor: pointer;
+}
+
+.services-dropdown summary::-webkit-details-marker {
+  display: none;
+}
+
+.services-dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 230px;
+  padding: 12px;
+  background: #0B1A2B;
+  border: 1px solid #D4AF37;
+  border-radius: 8px;
+  z-index: 1000;
+  box-shadow: 0 12px 30px rgba(0,0,0,.2);
+}
+
+.services-dropdown details[open]
+.services-dropdown-menu {
+  display: flex;
+  flex-direction: column;
+}
+
+.services-dropdown-menu a {
+  display: block;
+  padding: 12px 15px;
+  color: #FFFFFF;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.services-dropdown-menu a:hover,
+.services-dropdown-menu a:focus-visible {
+  background: #D4AF37;
+  color: #0B1A2B;
+}
+
+@media (max-width: 768px) {
+  .services-dropdown-menu {
+    position: static;
+    min-width: 0;
+    width: 100%;
+    box-shadow: none;
+  }
+}
