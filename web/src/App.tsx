@@ -11,7 +11,7 @@ import { useRevealObserver } from '@/hooks/useReveal'
 import { fetchPortfolioImageUrls } from '@/lib/portfolioManifest'
 import { HomePage } from '@/pages/HomePage'
 import HouseExtensionsPage from '@/pages/HouseExtensionsPage'
-
+import LoftConversionsPage from '@/pages/LoftConversionsPage'
 function AppShell({ portfolioUrls }: { portfolioUrls: string[] | undefined }) {
   useRevealObserver()
   useHeaderNav()
@@ -21,8 +21,10 @@ function AppShell({ portfolioUrls }: { portfolioUrls: string[] | undefined }) {
     <>
       <CookieBanner />
       <SiteHeader />
-      {window.location.pathname === '/house-extensions' ? (
+     {window.location.pathname === '/house-extensions' ? (
   <HouseExtensionsPage />
+) : window.location.pathname === '/loft-conversions' ? (
+  <LoftConversionsPage />
 ) : (
   <HomePage portfolioUrls={portfolioUrls} />
 )}
