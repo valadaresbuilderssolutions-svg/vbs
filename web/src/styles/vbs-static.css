@@ -2828,3 +2828,28 @@ footer {
     box-shadow: none;
   }
 }
+
+/* VBS PREMIUM MOBILE MENU FIX */
+
+@media (max-width: 768px) {
+  .mob-menu.open {
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0;
+    padding: 28px 20px 45px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+
+  .mob-menu a {
+    font-size: 1.2rem;
+    line-height: 1.4;
+    font-weight: 600;
+    text-align: center;
+    padding: 12px 8px;
+  }
+
+  .mob-menu a:focus-visible {
+    color: #B8943B;
+  }
+}
