@@ -64,12 +64,17 @@ export function SiteHeader() {
         >
           About
         </a>
-        <a
-          href="#services"
-          onClick={() => setMenuOpen(false)}
-        >
-          Services
-        </a>
+        
+<a href="/#services" onClick={() => setMenuOpen(false)}>
+  All Services
+</a>
+<a href="/house-extensions" onClick={() => setMenuOpen(false)}>
+  House Extensions
+</a>
+<a href="/loft-conversions" onClick={() => setMenuOpen(false)}>
+  Loft Conversions
+</a>
+
         <a
           href="#projects"
           onClick={() => setMenuOpen(false)}
