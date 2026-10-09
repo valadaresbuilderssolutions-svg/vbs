@@ -27,9 +27,18 @@ export function SiteHeader() {
             <li>
               <a href="#about">About</a>
             </li>
-            <li>
-              <a href="#services">Services</a>
-            </li>
+            
+<li className="services-dropdown">
+  <details>
+    <summary>Services <span aria-hidden="true">⌄</span></summary>
+    <div className="services-dropdown-menu">
+      <a href="/#services">All Services</a>
+      <a href="/house-extensions">House Extensions</a>
+      <a href="/loft-conversions">Loft Conversions</a>
+    </div>
+  </details>
+</li>
+
             <li>
               <a href="#projects">Projects</a>
             </li>
