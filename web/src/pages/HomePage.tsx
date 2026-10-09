@@ -75,26 +75,26 @@ export function HomePage({ portfolioUrls }: { portfolioUrls: string[] | undefine
           <aside className="hero-visual" style={{ animation: 'fadeIn 1s 0.7s ease both' }} aria-label="Highlights">
             <div className="h-card">
               <div className="h-card-icon">🏆</div>
-              <h4>Award-winning delivery</h4>
-              <p>UK Construction Excellence Awards — recognised project delivery.</p>
-              <div className="h-card-pill">2023 · 2024</div>
+              <h4>Quality-driven construction</h4>
+              <p>Professional building, renovation and project management services.</p>
+              <div className="h-card-pill">VALADARES BUILDERS SOLUTIONS</div>
             </div>
             <div className="h-stat-grid">
               <div className="h-stat">
-                <div className="num">500+</div>
-                <div className="lbl">Projects</div>
+                <div className="num">VBS</div>
+                <div className="lbl">Building Solutions</div>
               </div>
               <div className="h-stat">
-                <div className="num">98%</div>
-                <div className="lbl">Satisfaction</div>
+                <div className="num">Client</div>
+                <div className="lbl">Commitment</div>
               </div>
               <div className="h-stat">
-                <div className="num">15+</div>
-                <div className="lbl">Years</div>
+                <div className="num">UK</div>
+                <div className="lbl">Based</div>
               </div>
               <div className="h-stat">
-                <div className="num">50+</div>
-                <div className="lbl">Experts</div>
+                <div className="num">Quality</div>
+                <div className="lbl">Workmanship</div>
               </div>
             </div>
           </aside>
