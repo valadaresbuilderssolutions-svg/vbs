@@ -10,6 +10,7 @@ import { useHeroVideo } from '@/hooks/useHeroVideo'
 import { useRevealObserver } from '@/hooks/useReveal'
 import { fetchPortfolioImageUrls } from '@/lib/portfolioManifest'
 import { HomePage } from '@/pages/HomePage'
+import { HouseExtensionsPage } from '@/pages/HouseExtensionsPage'
 
 function AppShell({ portfolioUrls }: { portfolioUrls: string[] | undefined }) {
   useRevealObserver()
@@ -20,7 +21,11 @@ function AppShell({ portfolioUrls }: { portfolioUrls: string[] | undefined }) {
     <>
       <CookieBanner />
       <SiteHeader />
-      <HomePage portfolioUrls={portfolioUrls} />
+      {window.location.pathname === '/house-extensions' ? (
+  <HouseExtensionsPage />
+) : (
+  <HomePage portfolioUrls={portfolioUrls} />
+)}
       <LegalModals />
       <BlogModals />
     </>
