@@ -75,11 +75,17 @@ export default function HouseExtensionsPage() {
     }}
   />
 </a>
-          color: '#fff',
-          textDecoration: 'none'
-        }}>
-          Call 07748 323194
-        </a>
+          
+<a
+  href="tel:+447748323194"
+  style={{
+    color: '#fff',
+    textDecoration: 'none'
+  }}
+>
+  Call 07748 323194
+</a>
+
       </header>
 
       <section style={{
