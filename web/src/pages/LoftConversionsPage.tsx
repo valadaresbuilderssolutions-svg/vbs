@@ -1,8 +1,12 @@
 
 import { useEffect } from 'react'
 
+import { whatsappUrl } from '@/lib/whatsapp'
+
 const navy = '#0B1A2B'
 const gold = '#D4AF37'
+
+const LOFT_WHATSAPP_URL = whatsappUrl('Hello VBS, I would like to discuss a loft conversion.')
 
 const services = [
   {
@@ -99,7 +103,9 @@ export default function LoftConversionsPage() {
           </p>
 
           <a
-            href="tel:+447748323194"
+            href={LOFT_WHATSAPP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             style={{
               display: 'inline-block',
               marginTop: 30,
@@ -226,7 +232,9 @@ export default function LoftConversionsPage() {
           Discuss your ideas with Valadares Builders Solutions.
         </p>
         <a
-          href="tel:+447748323194"
+          href={LOFT_WHATSAPP_URL}
+          target="_blank"
+          rel="noopener noreferrer"
           style={{
             display: 'inline-block',
             marginTop: 20,
@@ -238,7 +246,7 @@ export default function LoftConversionsPage() {
             textDecoration: 'none',
           }}
         >
-          Call 07748 323194
+          Enquire via WhatsApp →
         </a>
       </section>
     </main>

@@ -2865,3 +2865,74 @@ footer {
 .services-dropdown-menu a:focus-visible {
   color: #D4AF37 !important;
 }
+
+/* ════════════════════════════════════════════════════════
+   FLOATING WHATSAPP BUTTON
+   Sits below header/mobile menu (999–1000), modals and cookie banner.
+════════════════════════════════════════════════════════ */
+.wa-float {
+  position: fixed;
+  right: calc(24px + env(safe-area-inset-right, 0px));
+  bottom: 24px;
+  z-index: 990;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: #25D366;
+  color: #FFFFFF;
+  border: 2px solid #D4AF37;
+  box-shadow:
+    0 6px 18px rgba(11, 26, 43, 0.28),
+    0 2px 6px rgba(11, 26, 43, 0.18);
+  text-decoration: none;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background-color 0.25s ease,
+    bottom 0.3s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.wa-float:hover {
+  transform: translateY(-3px) scale(1.04);
+  background: #1EBE5A;
+  box-shadow:
+    0 12px 28px rgba(11, 26, 43, 0.34),
+    0 0 0 4px rgba(212, 175, 55, 0.22);
+}
+
+.wa-float:active {
+  transform: translateY(0) scale(0.97);
+}
+
+.wa-float:focus-visible {
+  outline: 3px solid #D4AF37;
+  outline-offset: 3px;
+}
+
+/* Hide while the full-screen mobile menu is open so it never covers navigation. */
+body:has(.mob-menu.open) .wa-float {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+@media (max-width: 768px) {
+  .wa-float {
+    right: calc(16px + env(safe-area-inset-right, 0px));
+    width: 54px;
+    height: 54px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wa-float {
+    transition: none;
+  }
+  .wa-float:hover {
+    transform: none;
+  }
+}
