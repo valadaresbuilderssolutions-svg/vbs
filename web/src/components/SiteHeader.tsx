@@ -1,5 +1,7 @@
 import { useState } from 'react'
 
+import { SERVICE_NAV_LINKS } from '@/data/servicePages'
+
 export function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false)
 
@@ -11,7 +13,7 @@ export function SiteHeader() {
     <>
       <header id="site-header">
         <nav>
-          <a href="#hero" className="logo-wrap" aria-label="Valadares Builders Solutions — Home">
+          <a href="/#hero" className="logo-wrap" aria-label="Valadares Builders Solutions — Home">
             <img
               className="logo-img bg-transparent"
               src="/valadares-logo.png"
@@ -25,7 +27,7 @@ export function SiteHeader() {
 
           <ul className="nav-links">
             <li>
-              <a href="#about">About</a>
+              <a href="/#about">About</a>
             </li>
             
 <li className="services-dropdown">
@@ -33,20 +35,23 @@ export function SiteHeader() {
     <summary>Services <span aria-hidden="true">⌄</span></summary>
     <div className="services-dropdown-menu">
       <a href="/#services">All Services</a>
-      <a href="/house-extensions">House Extensions</a>
-      <a href="/loft-conversions">Loft Conversions</a>
+      {SERVICE_NAV_LINKS.map((link) => (
+        <a key={link.href} href={link.href}>
+          {link.label}
+        </a>
+      ))}
     </div>
   </details>
 </li>
 
             <li>
-              <a href="#projects">Projects</a>
+              <a href="/#projects">Projects</a>
             </li>
             <li>
-              <a href="#blog">Insights</a>
+              <a href="/#blog">Insights</a>
             </li>
             <li>
-              <a href="#contact" className="nav-cta">
+              <a href="/#contact" className="nav-cta">
                 Get in Touch
               </a>
             </li>
@@ -68,7 +73,7 @@ export function SiteHeader() {
 
       <div className={'mob-menu' + (menuOpen ? ' open' : '')} id="mob-menu">
         <a
-          href="#about"
+          href="/#about"
           onClick={() => setMenuOpen(false)}
         >
           About
@@ -77,27 +82,26 @@ export function SiteHeader() {
 <a href="/#services" onClick={() => setMenuOpen(false)}>
   All Services
 </a>
-<a href="/house-extensions" onClick={() => setMenuOpen(false)}>
-  House Extensions
-</a>
-<a href="/loft-conversions" onClick={() => setMenuOpen(false)}>
-  Loft Conversions
-</a>
+{SERVICE_NAV_LINKS.map((link) => (
+  <a key={link.href} href={link.href} onClick={() => setMenuOpen(false)}>
+    {link.label}
+  </a>
+))}
 
         <a
-          href="#projects"
+          href="/#projects"
           onClick={() => setMenuOpen(false)}
         >
           Projects
         </a>
         <a
-          href="#blog"
+          href="/#blog"
           onClick={() => setMenuOpen(false)}
         >
           Insights
         </a>
         <a
-          href="#contact"
+          href="/#contact"
           onClick={() => setMenuOpen(false)}
         >
           Get in Touch

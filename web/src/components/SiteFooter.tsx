@@ -111,7 +111,7 @@ export function SiteFooter() {
           {/* Brand */}
           <div className="lg:col-span-4 xl:col-span-4">
             <a
-              href="#hero"
+              href="/#hero"
               className="logo-wrap inline-flex transition-opacity hover:opacity-90"
               aria-label="Valadares Builders Solutions — Home"
             >
@@ -166,21 +166,21 @@ export function SiteFooter() {
             <div className={navPanelClass}>
               <h5 className={headingClass}>Company</h5>
               <ul className="m-0 flex list-none flex-col gap-0.5 p-0">
-                <FooterNavLink href="#about">About Us</FooterNavLink>
-                <FooterNavLink href="#services">Services</FooterNavLink>
-                <FooterNavLink href="#projects">Projects</FooterNavLink>
-                <FooterNavLink href="#blog">Blog</FooterNavLink>
-                <FooterNavLink href="#contact">Contact</FooterNavLink>
+                <FooterNavLink href="/#about">About Us</FooterNavLink>
+                <FooterNavLink href="/#services">Services</FooterNavLink>
+                <FooterNavLink href="/#projects">Projects</FooterNavLink>
+                <FooterNavLink href="/#blog">Blog</FooterNavLink>
+                <FooterNavLink href="/#contact">Contact</FooterNavLink>
               </ul>
             </div>
             <div className={navPanelClass}>
               <h5 className={headingClass}>Services</h5>
               <ul className="m-0 flex list-none flex-col gap-0.5 p-0">
-                <FooterNavLink href="#services">Residential Build</FooterNavLink>
-                <FooterNavLink href="#services">Commercial Build</FooterNavLink>
-                <FooterNavLink href="#services">Renovations</FooterNavLink>
-                <FooterNavLink href="#services">Architecture</FooterNavLink>
-                <FooterNavLink href="#services">Sustainability</FooterNavLink>
+                <FooterNavLink href="/#services">Residential Build</FooterNavLink>
+                <FooterNavLink href="/#services">Commercial Build</FooterNavLink>
+                <FooterNavLink href="/#services">Renovations</FooterNavLink>
+                <FooterNavLink href="/#services">Architecture</FooterNavLink>
+                <FooterNavLink href="/#services">Sustainability</FooterNavLink>
               </ul>
             </div>
             <div className={navPanelClass}>

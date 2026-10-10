@@ -14,22 +14,33 @@ import { fetchPortfolioImageUrls } from '@/lib/portfolioManifest'
 import { HomePage } from '@/pages/HomePage'
 import HouseExtensionsPage from '@/pages/HouseExtensionsPage'
 import LoftConversionsPage from '@/pages/LoftConversionsPage'
+import ServiceLandingPage from '@/pages/ServiceLandingPage'
+import { BATHROOM_RENOVATIONS, FULL_RENOVATIONS, KITCHEN_RENOVATIONS } from '@/data/servicePages'
+
+const SERVICE_PAGES = [FULL_RENOVATIONS, KITCHEN_RENOVATIONS, BATHROOM_RENOVATIONS]
+
 function AppShell({ portfolioUrls }: { portfolioUrls: string[] | undefined }) {
   useRevealObserver()
   useHeaderNav()
   useHeroVideo()
 
+  // Tolerate a trailing slash so /kitchen-renovations/ still resolves.
+  const path = window.location.pathname.replace(/\/+$/, '') || '/'
+  const servicePage = SERVICE_PAGES.find((p) => p.path === path)
+
   return (
     <>
       <CookieBanner />
       <SiteHeader />
-     {window.location.pathname === '/house-extensions' ? (
-  <HouseExtensionsPage />
-) : window.location.pathname === '/loft-conversions' ? (
-  <LoftConversionsPage />
-) : (
-  <HomePage portfolioUrls={portfolioUrls} />
-)}
+      {path === '/house-extensions' ? (
+        <HouseExtensionsPage />
+      ) : path === '/loft-conversions' ? (
+        <LoftConversionsPage />
+      ) : servicePage ? (
+        <ServiceLandingPage content={servicePage} />
+      ) : (
+        <HomePage portfolioUrls={portfolioUrls} />
+      )}
       <LegalModals />
       <BlogModals />
       <SiteFooter />

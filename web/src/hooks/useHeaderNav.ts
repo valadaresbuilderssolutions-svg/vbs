@@ -13,7 +13,7 @@ export function useHeaderNav() {
       })
       document.querySelectorAll('.nav-links a').forEach((a) => {
         const link = a as HTMLAnchorElement
-        link.classList.toggle('nav-active', link.getAttribute('href') === '#' + current)
+        link.classList.toggle('nav-active', current !== '' && link.getAttribute('href') === '/#' + current)
         link.style.removeProperty('color')
       })
     }
