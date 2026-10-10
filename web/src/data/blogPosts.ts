@@ -7,45 +7,45 @@ export type BlogPost = {
   description: string
   image: string
   imageAlt: string
-  dateLabel: string
   readTime: string
+  /** Dedicated service landing page the article relates to. */
+  service: { href: string; label: string }
 }
 
 export const blogPosts: BlogPost[] = [
   {
-    modalId: 'blog-structural-survey',
-    category: 'Construction tips',
-    title: '5 Signs Your Home Needs a Structural Survey Before Renovation',
+    modalId: 'blog-house-extension',
+    category: 'House extensions',
+    title: 'Planning a House Extension in South London',
     description:
-      'Before undertaking any major renovation, understanding your property’s structural integrity can save tens of thousands and prevent dangerous surprises down the line.',
+      'From permitted development and planning permission to Party Wall matters and Building Regulations, the key steps to consider before extending your home.',
+    image: '/images/vbs-extension.jpg',
+    imageAlt: 'Rear house extension with large glazed doors opening onto a garden at dusk',
+    readTime: '6 min read',
+    service: { href: '/house-extensions', label: 'House Extensions' },
+  },
+  {
+    modalId: 'blog-loft-regulations',
+    category: 'Loft conversions',
+    title: 'Understanding Loft Conversions and Building Regulations',
+    description:
+      'Head height, structure, fire safety, stairs and insulation: a clear overview of what Building Regulations typically require when converting a loft.',
     image:
       'https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=960&auto=format&fit=crop&q=80',
-    imageAlt: 'Construction site with crane and steel framework',
-    dateLabel: 'March 2025',
-    readTime: '6 min',
+    imageAlt: 'Construction site with exposed structural framework',
+    readTime: '7 min read',
+    service: { href: '/loft-conversions', label: 'Loft Conversions' },
   },
   {
-    modalId: 'blog-sustainability-uk',
-    category: 'Sustainability',
-    title: 'How Sustainable Practices Are Reshaping UK Construction',
+    modalId: 'blog-renovation-budget',
+    category: 'Renovation planning',
+    title: 'Budgeting and Planning a Home Renovation',
     description:
-      'From passive house design to reclaimed materials, the industry is undergoing a green revolution — and how we deliver projects is changing with it.',
-    image:
-      'https://images.unsplash.com/photo-1518005020951-eccb494ad742?w=960&auto=format&fit=crop&q=80',
-    imageAlt: 'Modern building with green living wall and glass facade',
-    dateLabel: 'February 2025',
-    readTime: '8 min',
-  },
-  {
-    modalId: 'blog-extension-budget',
-    category: 'Budget guide',
-    title: 'How to Budget Your Extension Project: A Complete 2025 Guide',
-    description:
-      'Material costs, labour rates, and planning fees explained clearly — everything you need to plan a realistic budget for your home extension.',
+      'How to set a realistic budget, allow for professional fees and contingency, and plan the order of works for a smoother renovation.',
     image:
       'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=960&auto=format&fit=crop&q=80',
-    imageAlt: 'Desk with calculator, documents, and coffee planning finances',
-    dateLabel: 'January 2025',
-    readTime: '10 min',
+    imageAlt: 'Desk with calculator and documents used for planning a budget',
+    readTime: '6 min read',
+    service: { href: '/full-renovations', label: 'Full Renovations' },
   },
 ]

@@ -13,9 +13,9 @@ export type ModalId =
   | 'privacy-modal'
   | 'cookies-modal'
   | 'security-modal'
-  | 'blog-structural-survey'
-  | 'blog-sustainability-uk'
-  | 'blog-extension-budget'
+  | 'blog-house-extension'
+  | 'blog-loft-regulations'
+  | 'blog-renovation-budget'
 
 type ModalContextValue = {
   openModal: (id: ModalId) => void
