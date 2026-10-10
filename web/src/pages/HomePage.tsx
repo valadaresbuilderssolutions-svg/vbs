@@ -16,7 +16,7 @@ import { CircularGallerySection } from '@/components/projects/CircularGallerySec
 import { ConstructionInProgressSection } from '@/components/projects/ConstructionInProgressSection'
 import { ProjectsSection } from '@/components/projects/ProjectsSection'
 import { ServicesSection } from '@/components/services/ServicesSection'
-import { SiteFooter } from '@/components/SiteFooter'
+
 
 const ABOUT_BRAND_IMAGE = '/valadares-logo.png'
 
@@ -577,7 +577,7 @@ export function HomePage({ portfolioUrls }: { portfolioUrls: string[] | undefine
         </div>
       </section>
 
-      <SiteFooter />
+
     </>
   )
 }
