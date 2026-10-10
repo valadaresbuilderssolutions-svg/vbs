@@ -27,19 +27,14 @@ export function HomePage({ portfolioUrls }: { portfolioUrls: string[] | undefine
     <>
       <section id="hero">
         <div className="hero-media" aria-hidden="true">
-          <video
-            className="hero-video"
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="auto"
-            poster="/hero-poster.jpg"
-          >
-            {/* H.264 MP4 from gemini master (converted for all browsers). */}
-            <source src="/hero-gemini-master.mp4" type="video/mp4" />
-            <source src="/hero-background.mp4" type="video/mp4" />
-          </video>
+          
+<img
+  className="hero-video"
+  src="/images/vbs-extension.jpg"
+  alt="Premium house extension"
+  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+/>
+
         </div>
         <div className="hero-scrim" aria-hidden="true" />
 
