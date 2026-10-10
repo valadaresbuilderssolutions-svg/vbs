@@ -220,16 +220,7 @@ export default function HouseExtensionsPage() {
           Enquire via WhatsApp →
         </a>
       </section>
-
-      <footer style={{
-        background: '#07111D',
-        color: '#fff',
-        padding: '30px 7%',
-        fontSize: 13
-      }}>
-        © 2026 Valadares Builders Solutions Ltd.
-        <p>Registered in England & Wales.</p>
-      </footer>
+     
     </main>
   )
 }
