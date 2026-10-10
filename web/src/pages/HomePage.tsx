@@ -335,7 +335,7 @@ export function HomePage({ portfolioUrls }: { portfolioUrls: string[] | undefine
 
       <ProjectsSection imageUrls={portfolioUrls} />
       <ConstructionInProgressSection />
-      <CircularGallerySection />
+     
 
       <BlogSection />
 
