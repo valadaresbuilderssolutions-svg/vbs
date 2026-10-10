@@ -1,6 +1,8 @@
 
 import { useEffect } from 'react'
 
+import { InstagramCta } from '@/components/InstagramCta'
+
 import { whatsappUrl } from '@/lib/whatsapp'
 
 const navy = '#0B1A2B'
@@ -216,6 +218,8 @@ export default function LoftConversionsPage() {
           individual property and proposed works.
         </p>
       </section>
+
+      <InstagramCta />
 
       <section
         style={{

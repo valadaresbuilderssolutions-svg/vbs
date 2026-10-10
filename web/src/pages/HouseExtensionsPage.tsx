@@ -1,6 +1,8 @@
 
 import { useEffect } from 'react'
 
+import { InstagramCta } from '@/components/InstagramCta'
+
 const navy = '#0B1A2B'
 const gold = '#D4AF37'
 
@@ -189,6 +191,8 @@ export default function HouseExtensionsPage() {
           Clapham and surrounding areas.
         </p>
       </section>
+
+      <InstagramCta />
 
       <section id="contact" style={{
         padding: '85px 7%',
