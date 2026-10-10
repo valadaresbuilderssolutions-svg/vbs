@@ -2,8 +2,9 @@ import { useEffect } from 'react'
 
 export function useHeroVideo() {
   useEffect(() => {
-    const v = document.querySelector('.hero-video') as HTMLVideoElement | null
-    if (!v) return
+    const v = document.querySelector('.hero-video')
+    // The hero may be a static <img>; only drive playback for a real <video>.
+    if (!(v instanceof HTMLVideoElement)) return
     const kick = () => {
       v.play().catch(() => {})
     }

@@ -3,19 +3,16 @@ const featuredProjects = [
   {
     title: 'House Extensions',
     description: 'Beautifully planned spaces, built for modern living.',
-    image: '/images/vbs-extension.jpg',
     href: '/house-extensions',
   },
   {
     title: 'Loft Conversions',
     description: 'Transform unused roof space into something exceptional.',
-    image: '/images/vbs-loft.jpg',
     href: '/loft-conversions',
   },
   {
     title: 'Full Renovations',
     description: 'Thoughtful transformations, expertly delivered.',
-    image: '/images/vbs-renovation.jpg',
     href: '/contact',
   },
 ]
@@ -48,34 +45,34 @@ export function ProjectsSection({
         </div>
 
         <div className="grid gap-7 md:grid-cols-3">
-          {featuredProjects.map((project) => (
+          {featuredProjects.map((project, index) => (
             <a
               key={project.title}
               href={project.href}
-              className="group overflow-hidden rounded-lg bg-white shadow-sm transition-shadow hover:shadow-xl"
+              className="group relative flex min-h-[320px] no-underline flex-col overflow-hidden rounded-lg border border-[#D4AF37]/25 bg-[#0B1A2B] p-9 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#D4AF37]/70 hover:shadow-xl md:p-10"
             >
-              <div className="aspect-[4/5] overflow-hidden bg-[#0B1A2B]">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  loading="lazy"
-                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-              </div>
+              <span className="absolute inset-x-0 top-0 h-[3px] origin-left scale-x-0 bg-[#D4AF37] transition-transform duration-500 group-hover:scale-x-100" />
 
-              <div className="p-7">
-                <h3 className="font-serif text-2xl text-[#0B1A2B]">
-                  {project.title}
-                </h3>
+              <span className="font-serif text-sm tracking-[0.3em] text-[#D4AF37]">
+                {String(index + 1).padStart(2, '0')}
+              </span>
 
-                <p className="mt-3 text-sm leading-6 text-slate-600">
-                  {project.description}
-                </p>
+              <span className="mt-6 block h-px w-12 bg-[#D4AF37]/60 transition-all duration-500 group-hover:w-20 group-hover:bg-[#D4AF37]" />
 
-                <span className="mt-6 inline-block text-sm font-semibold text-[#A88935]">
-                  Explore Service →
+              <h3 className="mt-8 font-serif text-3xl text-white">
+                {project.title}
+              </h3>
+
+              <p className="mt-4 text-sm leading-7 text-white/70">
+                {project.description}
+              </p>
+
+              <span className="mt-auto inline-flex items-center gap-2 pt-10 text-xs font-semibold uppercase tracking-[0.2em] text-[#D4AF37]">
+                Explore Service
+                <span className="transition-transform duration-300 group-hover:translate-x-1">
+                  →
                 </span>
-              </div>
+              </span>
             </a>
           ))}
         </div>
