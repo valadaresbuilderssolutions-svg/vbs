@@ -53,40 +53,6 @@ export default function HouseExtensionsPage() {
       color: navy,
       background: '#fff'
     }}>
-      <header style={{
-        background: navy,
-        padding: '22px 7%',
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        gap: 20,
-        flexWrap: 'wrap'
-      }}>
-        <a href="/" aria-label="Valadares Builders Solutions - Home">
-  <img
-    src="/valadares-logo.png"
-    alt="Valadares Builders Solutions"
-    style={{
-      width: '180px',
-      maxWidth: '100%',
-      height: 'auto',
-      display: 'block',
-      objectFit: 'contain'
-    }}
-  />
-</a>
-          
-<a
-  href="tel:+447748323194"
-  style={{
-    color: '#fff',
-    textDecoration: 'none'
-  }}
->
-  Call 07748 323194
-</a>
-
-      </header>
 
       <section style={{
         background: navy,
