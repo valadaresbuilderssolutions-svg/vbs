@@ -62,15 +62,19 @@ export default function HouseExtensionsPage() {
         gap: 20,
         flexWrap: 'wrap'
       }}>
-        <a href="/" style={{
-          color: gold,
-          fontWeight: 800,
-          fontSize: 22,
-          textDecoration: 'none'
-        }}>
-          VBS
-        </a>
-        <a href="tel:+447748323194" style={{
+        <a href="/" aria-label="Valadares Builders Solutions - Home">
+  <img
+    src="/valadares-logo.png"
+    alt="Valadares Builders Solutions"
+    style={{
+      width: '180px',
+      maxWidth: '100%',
+      height: 'auto',
+      display: 'block',
+      objectFit: 'contain'
+    }}
+  />
+</a>
           color: '#fff',
           textDecoration: 'none'
         }}>
