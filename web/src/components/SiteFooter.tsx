@@ -1,10 +1,17 @@
-import type { MouseEvent, ReactNode } from 'react'
+import { useId, type MouseEvent, type ReactNode } from 'react'
 
 import { useModal } from '@/context/ModalContext'
+import { SERVICE_NAV_LINKS } from '@/data/servicePages'
+import { FACEBOOK_URL } from '@/lib/facebook'
+import { INSTAGRAM_URL } from '@/lib/instagram'
+import { whatsappUrl } from '@/lib/whatsapp'
 
-const FB_URL = 'https://www.facebook.com/share/1E6E6xGUMz/?mibextid=wwXIfr'
-const IG_URL =
-  'https://www.instagram.com/valadaresbuilders/?utm_source=ig_web_button_share_sheet'
+const LEGAL_LINKS = [
+  { label: 'Terms & Conditions', short: 'Terms', modal: 'terms-modal' },
+  { label: 'Privacy Policy', short: 'Privacy', modal: 'privacy-modal' },
+  { label: 'Cookie Policy', short: 'Cookies', modal: 'cookies-modal' },
+  { label: 'Security Policy', short: 'Security', modal: 'security-modal' },
+] as const
 
 function IconFacebook({ className }: { className?: string }) {
   return (
@@ -29,6 +36,7 @@ function IconFacebook({ className }: { className?: string }) {
 }
 
 function IconInstagram({ className }: { className?: string }) {
+  const gradId = 'ig-grad-' + useId().replace(/[^a-zA-Z0-9_-]/g, '')
   return (
     <svg
       aria-hidden
@@ -39,7 +47,7 @@ function IconInstagram({ className }: { className?: string }) {
       preserveAspectRatio="xMidYMid meet"
     >
       <defs>
-        <linearGradient id="footer-instagram-grad" x1="0%" y1="100%" x2="100%" y2="0%">
+        <linearGradient id={gradId} x1="0%" y1="100%" x2="100%" y2="0%">
           <stop offset="0%" stopColor="#f09433" />
           <stop offset="0.25" stopColor="#e6683c" />
           <stop offset="0.5" stopColor="#dc2743" />
@@ -48,7 +56,7 @@ function IconInstagram({ className }: { className?: string }) {
         </linearGradient>
       </defs>
       <path
-        fill="url(#footer-instagram-grad)"
+        fill={`url(#${gradId})`}
         d="M16 3.19c3.46 0 3.89.01 5.24.07 1.25.06 2.05.25 2.83.54.77.29 1.43.68 2.08 1.33s1.04 1.31 1.33 2.08c.29.78.48 1.58.54 2.83.06 1.35.07 1.78.07 5.24s-.01 3.89-.07 5.24c-.06 1.25-.25 2.05-.54 2.83-.29.77-.68 1.43-1.33 2.08s-1.31 1.04-2.08 1.33c-.78.29-1.58.48-2.83.54-1.35.06-1.78.07-5.24.07s-3.89-.01-5.24-.07c-1.25-.06-2.05-.25-2.83-.54-.77-.29-1.43-.68-2.08-1.33s-1.04-1.31-1.33-2.08c-.29-.78-.48-1.58-.54-2.83-.06-1.35-.07-1.78-.07-5.24s.01-3.89.07-5.24c.06-1.25.25-2.05.54-2.83.29-.77.68-1.43 1.33-2.08s1.31-1.04 2.08-1.33c.78-.29 1.58-.48 2.83-.54 1.35-.06 1.78-.07 5.24-.07zM16 0c-3.54 0-3.98.01-5.37.07-1.69.08-2.86.34-3.88.72-1.05.4-1.95.94-2.82 1.81-.87.87-1.41 1.77-1.81 2.82-.38 1.02-.64 2.19-.72 3.88C.01 12.02 0 12.46 0 16s.01 3.98.07 5.37c.08 1.69.34 2.86.72 3.88.4 1.05.94 1.95 1.81 2.82.87.87 1.77 1.41 2.82 1.81 1.02.38 2.19.64 3.88.72 1.39.06 1.83.07 5.37.07s3.98-.01 5.37-.07c1.69-.08 2.86-.34 3.88-.72 1.05-.4 1.95-.94 2.82-1.81.87-.87 1.41-1.77 1.81-2.82.38-1.02.64-2.19.72-3.88.06-1.39.07-1.83.07-5.37s-.01-3.98-.07-5.37c-.08-1.69-.34-2.86-.72-3.88-.4-1.05-.94-1.95-1.81-2.82-.87-.87-1.77-1.41-2.82-1.81-1.02-.38-2.19-.64-3.88-.72C19.98.01 19.54 0 16 0zm0 7.78c-4.54 0-8.22 3.68-8.22 8.22s3.68 8.22 8.22 8.22 8.22-3.68 8.22-8.22-3.68-8.22-8.22-8.22zM16 21.34c-2.95 0-5.34-2.39-5.34-5.34s2.39-5.34 5.34-5.34 5.34 2.39 5.34 5.34-2.39 5.34-5.34 5.34zm7.94-13.88c0 1.06-.86 1.92-1.92 1.92s-1.92-.86-1.92-1.92.86-1.92 1.92-1.92 1.92.86 1.92 1.92z"
       />
     </svg>
@@ -68,22 +76,31 @@ function FooterNavLink({
   href,
   children,
   onClick,
+  external = false,
+  icon,
 }: {
   href: string
   children: ReactNode
   onClick?: (e: MouseEvent<HTMLAnchorElement>) => void
+  /** Opens in a new tab with safe rel attributes. */
+  external?: boolean
+  /** Replaces the default bullet. */
+  icon?: ReactNode
 }) {
   return (
     <li className="m-0 p-0">
       <a
         href={href}
         onClick={onClick}
+        {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
         className="group flex items-center gap-2.5 rounded-md py-1.5 pl-0.5 pr-1 text-[0.8125rem] text-[rgba(255,255,255,0.9)] no-underline transition-colors hover:bg-white/[0.06] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/45 focus-visible:ring-offset-1 focus-visible:ring-offset-charcoal"
       >
-        <span
-          className="h-1 w-1 shrink-0 rounded-full bg-white/35 transition-all duration-300 group-hover:w-2 group-hover:bg-gold"
-          aria-hidden
-        />
+        {icon ?? (
+          <span
+            className="h-1 w-1 shrink-0 rounded-full bg-white/35 transition-all duration-300 group-hover:w-2 group-hover:bg-gold"
+            aria-hidden
+          />
+        )}
         <span className="border-b border-transparent transition-colors group-hover:border-gold/50 group-hover:text-gold">
           {children}
         </span>
@@ -107,9 +124,9 @@ export function SiteFooter() {
       />
 
       <div className="relative mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8 lg:py-[4.25rem]">
-        <div className="grid grid-cols-1 items-start gap-11 lg:grid-cols-12 lg:gap-9 xl:gap-11">
+        <div className="grid grid-cols-1 items-start gap-11 lg:grid-cols-12 lg:gap-9 xl:gap-10">
           {/* Brand */}
-          <div className="lg:col-span-4 xl:col-span-4">
+          <div className="lg:col-span-3">
             <a
               href="/#hero"
               className="logo-wrap inline-flex transition-opacity hover:opacity-90"
@@ -131,18 +148,18 @@ export function SiteFooter() {
             </p>
             <div className="mt-6 flex items-center gap-2.5">
               <a
-                href={FB_URL}
+                href={FACEBOOK_URL}
                 className={socialBtnClass}
-                aria-label="Valadares Builders on Facebook"
+                aria-label="Valadares Builders on Facebook (opens in a new tab)"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <IconFacebook className="shrink-0" />
               </a>
               <a
-                href={IG_URL}
+                href={INSTAGRAM_URL}
                 className={socialBtnClass}
-                aria-label="Valadares Builders on Instagram"
+                aria-label="Valadares Builders on Instagram (opens in a new tab)"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -150,20 +167,16 @@ export function SiteFooter() {
               </a>
               <span className="pl-1 text-xs text-[rgba(255,255,255,0.68)]">Follow the build</span>
             </div>
-            <div className="mt-7 space-y-1.5 border-t border-white/[0.09] pt-7">
-              <a
-                href="mailto:info@valadaresbuilders.com"
-                className="footer-mail inline-flex text-sm font-medium no-underline underline-offset-4 transition-colors hover:text-gold hover:underline hover:decoration-gold/70"
-              >
-                info@valadaresbuilders.com
-              </a>
-              <p className="text-xs text-[rgba(255,255,255,0.58)]">Company number 17156604</p>
+            <div className="mt-7 space-y-1 border-t border-white/[0.09] pt-7 text-xs text-[rgba(255,255,255,0.58)]">
+              <p className="m-0">Valadares Builders Solutions Ltd</p>
+              <p className="m-0">Company number 17156604</p>
+              <p className="m-0">Registered in England &amp; Wales</p>
             </div>
           </div>
 
-          {/* Nav — tighter to brand; three glass panels */}
-          <div className="grid grid-cols-1 gap-5 sm:grid-cols-3 lg:col-span-8 lg:gap-5 xl:gap-6">
-            <div className={navPanelClass}>
+          {/* Nav — four glass panels */}
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:col-span-9 xl:grid-cols-4 xl:gap-5">
+            <nav className={navPanelClass} aria-label="Company">
               <h5 className={headingClass}>Company</h5>
               <ul className="m-0 flex list-none flex-col gap-0.5 p-0">
                 <FooterNavLink href="/#about">About Us</FooterNavLink>
@@ -172,58 +185,55 @@ export function SiteFooter() {
                 <FooterNavLink href="/#blog">Blog</FooterNavLink>
                 <FooterNavLink href="/#contact">Contact</FooterNavLink>
               </ul>
-            </div>
-            <div className={navPanelClass}>
-              <h5 className={headingClass}>Services</h5>
+            </nav>
+            <nav className={navPanelClass} aria-label="Our Services">
+              <h5 className={headingClass}>Our Services</h5>
               <ul className="m-0 flex list-none flex-col gap-0.5 p-0">
-                <FooterNavLink href="/#services">Residential Build</FooterNavLink>
-                <FooterNavLink href="/#services">Commercial Build</FooterNavLink>
-                <FooterNavLink href="/#services">Renovations</FooterNavLink>
-                <FooterNavLink href="/#services">Architecture</FooterNavLink>
-                <FooterNavLink href="/#services">Sustainability</FooterNavLink>
+                {SERVICE_NAV_LINKS.map((link) => (
+                  <FooterNavLink key={link.href} href={link.href}>
+                    {link.label}
+                  </FooterNavLink>
+                ))}
               </ul>
-            </div>
+            </nav>
             <div className={navPanelClass}>
+              <h5 className={headingClass}>Connect With VBS</h5>
+              <ul className="m-0 flex list-none flex-col gap-0.5 p-0">
+                <FooterNavLink href={FACEBOOK_URL} external icon={<IconFacebook className="h-4 w-4 shrink-0" />}>
+                  Facebook
+                </FooterNavLink>
+                <FooterNavLink href={INSTAGRAM_URL} external icon={<IconInstagram className="h-4 w-4 shrink-0" />}>
+                  Instagram
+                </FooterNavLink>
+                <FooterNavLink href={whatsappUrl()} external>
+                  WhatsApp
+                </FooterNavLink>
+                <FooterNavLink href="tel:+447748323194">+44 (0) 7748 323194</FooterNavLink>
+              </ul>
+              <a
+                href="mailto:info@valadaresbuilders.com"
+                className="footer-mail mt-2 inline-flex break-all text-[0.8125rem] font-medium no-underline underline-offset-4 transition-colors hover:text-gold hover:underline hover:decoration-gold/70"
+              >
+                info@valadaresbuilders.com
+              </a>
+            </div>
+            <nav className={navPanelClass} aria-label="Legal">
               <h5 className={headingClass}>Legal</h5>
               <ul className="m-0 flex list-none flex-col gap-0.5 p-0">
-                <FooterNavLink
-                  href="#"
-                  onClick={(e) => {
-                    e.preventDefault()
-                    openModal('terms-modal')
-                  }}
-                >
-                  Terms &amp; Conditions
-                </FooterNavLink>
-                <FooterNavLink
-                  href="#"
-                  onClick={(e) => {
-                    e.preventDefault()
-                    openModal('privacy-modal')
-                  }}
-                >
-                  Privacy Policy
-                </FooterNavLink>
-                <FooterNavLink
-                  href="#"
-                  onClick={(e) => {
-                    e.preventDefault()
-                    openModal('cookies-modal')
-                  }}
-                >
-                  Cookie Policy
-                </FooterNavLink>
-                <FooterNavLink
-                  href="#"
-                  onClick={(e) => {
-                    e.preventDefault()
-                    openModal('security-modal')
-                  }}
-                >
-                  Security Policy
-                </FooterNavLink>
+                {LEGAL_LINKS.map((item) => (
+                  <FooterNavLink
+                    key={item.modal}
+                    href="#"
+                    onClick={(e) => {
+                      e.preventDefault()
+                      openModal(item.modal)
+                    }}
+                  >
+                    {item.label}
+                  </FooterNavLink>
+                ))}
               </ul>
-            </div>
+            </nav>
           </div>
         </div>
 
@@ -236,15 +246,8 @@ export function SiteFooter() {
             className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 sm:gap-x-0 lg:col-span-8 lg:justify-end"
             aria-label="Legal shortcuts"
           >
-            {(
-              [
-                { id: 'terms', label: 'Terms', modal: 'terms-modal' as const },
-                { id: 'privacy', label: 'Privacy', modal: 'privacy-modal' as const },
-                { id: 'cookies', label: 'Cookies', modal: 'cookies-modal' as const },
-                { id: 'security', label: 'Security', modal: 'security-modal' as const },
-              ] as const
-            ).map((item, i) => (
-              <span key={item.id} className="inline-flex items-center">
+            {LEGAL_LINKS.map((item, i) => (
+              <span key={item.modal} className="inline-flex items-center">
                 {i > 0 ? (
                   <span className="mx-3 hidden text-white/20 sm:inline" aria-hidden>
                     ·
@@ -258,7 +261,7 @@ export function SiteFooter() {
                     openModal(item.modal)
                   }}
                 >
-                  {item.label}
+                  {item.short}
                 </a>
               </span>
             ))}
