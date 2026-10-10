@@ -12,7 +12,7 @@ import { motion } from 'motion/react'
 
 import { EnquiryForm } from '@/components/EnquiryForm'
 import { BlogSection } from '@/components/ui/blog-section'
-import { CircularGallerySection } from '@/components/projects/CircularGallerySection'
+
 import { ConstructionInProgressSection } from '@/components/projects/ConstructionInProgressSection'
 import { ProjectsSection } from '@/components/projects/ProjectsSection'
 import { ServicesSection } from '@/components/services/ServicesSection'
