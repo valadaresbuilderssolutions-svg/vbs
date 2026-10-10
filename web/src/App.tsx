@@ -4,6 +4,7 @@ import { BlogModals } from '@/components/BlogModals'
 import { CookieBanner } from '@/components/CookieBanner'
 import { LegalModals } from '@/components/LegalModals'
 import { SiteHeader } from '@/components/SiteHeader'
+import { SiteFooter } from '@/components/SiteFooter'
 import { ModalProvider } from '@/context/ModalContext'
 import { useHeaderNav } from '@/hooks/useHeaderNav'
 import { useHeroVideo } from '@/hooks/useHeroVideo'
@@ -30,6 +31,7 @@ function AppShell({ portfolioUrls }: { portfolioUrls: string[] | undefined }) {
 )}
       <LegalModals />
       <BlogModals />
+      <SiteFooter />
     </>
   )
 }
