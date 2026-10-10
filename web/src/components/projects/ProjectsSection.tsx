@@ -49,7 +49,7 @@ export function ProjectsSection({
             <a
               key={project.title}
               href={project.href}
-              className="group relative flex min-h-[320px] flex-col overflow-hidden rounded-lg border border-[#D4AF37]/25 bg-[#0B1A2B] p-9 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#D4AF37]/70 hover:shadow-xl md:p-10"
+              className="group relative flex min-h-[320px] no-underline flex-col overflow-hidden rounded-lg border border-[#D4AF37]/25 bg-[#0B1A2B] p-9 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#D4AF37]/70 hover:shadow-xl md:p-10"
             >
               <span className="absolute inset-x-0 top-0 h-[3px] origin-left scale-x-0 bg-[#D4AF37] transition-transform duration-500 group-hover:scale-x-100" />
 
