@@ -2853,3 +2853,15 @@ footer {
     color: #B8943B;
   }
 }
+
+/* VBS – GLOBAL SERVICES MENU TEXT FIX */
+
+.services-dropdown summary,
+.services-dropdown-menu a {
+  color: #FFFFFF !important;
+}
+
+.services-dropdown-menu a:hover,
+.services-dropdown-menu a:focus-visible {
+  color: #D4AF37 !important;
+}
